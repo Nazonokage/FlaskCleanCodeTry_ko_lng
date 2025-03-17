@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="overflow-x-auto">
+    <table class="min-w-full bg-white">
+        <thead>
+            <tr>
+                <th class="py-2 px-4 border-b">IP Address</th>
+                <th class="py-2 px-4 border-b">Browser</th>
+                <th class="py-2 px-4 border-b">Location</th>
+                <th class="py-2 px-4 border-b">Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for log in logs %}
+            <tr>
+                <td class="py-2 px-4 border-b">{{ log.ip_address }}</td>
+                <td class="py-2 px-4 border-b">{{ log.browser|truncate(50) }}</td>
+                <td class="py-2 px-4 border-b">{{ log.city }}, {{ log.region }}</td>
+                <td class="py-2 px-4 border-b">{{ log.timestamp.strftime('%Y-%m-%d %H:%M') }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

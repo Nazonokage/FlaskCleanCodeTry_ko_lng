@@ -1,0 +1,8 @@
+Flask==2.3.2
+Flask-WTF==1.1.1
+Flask-CORS==4.0.0
+Flask-SQLAlchemy==3.0.5
+pymysql==1.1.0  # Add pymysql
+python-dotenv==1.0.0
+WTForms==3.0.1
+email_validator==2.0.0

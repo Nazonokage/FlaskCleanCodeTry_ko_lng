@@ -1,0 +1,26 @@
+flask_logs_app/
+│
+├── app/
+│   ├── __init__.py
+│   ├── auth.py
+│   ├── routes.py
+│   ├── models.py
+│   ├── forms.py
+│   ├── utils.py
+│   ├── templates/
+│   │   ├── base.html
+│   │   ├── index.html
+│   │   ├── register.html
+│   │   ├── login.html
+│   │   ├── dashboard.html
+│   │   ├── edit_profile.html
+│   │   ├── partials/
+│   │       ├── navbar.html
+│   │       ├── footer.html
+│   ├── static/
+│       ├── css/
+│           ├── styles.css
+│
+├── config.py
+├── requirements.txt
+├── run.py

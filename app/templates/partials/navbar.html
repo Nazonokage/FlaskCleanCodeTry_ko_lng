@@ -1,0 +1,39 @@
+<!-- templates/partials/navbar.html -->
+<nav class="bg-blue-500 p-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <a href="{{ url_for('routes.index') }}" class="text-white text-lg font-bold">FlaskDemo</a>
+        <div class="space-x-4">
+            {% if session.get('logged_in') %}
+                <div class="relative inline-block">
+                    <button class="text-white focus:outline-none">
+                        {{ session.get('username') }} ▼
+                    </button>
+                    <div class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 hidden">
+                        <a href="{{ url_for('routes.edit_profile') }}" class="block px-4 py-2 text-gray-800 hover:bg-blue-500 hover:text-white">Edit Profile</a>
+                        <a href="{{ url_for('auth.logout') }}" class="block px-4 py-2 text-gray-800 hover:bg-blue-500 hover:text-white">Logout</a>
+                    </div>
+                </div>
+            {% else %}
+                <a href="{{ url_for('auth.login') }}" class="text-white">Login</a>
+                <a href="{{ url_for('auth.register') }}" class="text-white">Register</a>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+
+<script>
+    // Add dropdown functionality
+    const profileButton = document.querySelector('nav button');
+    const dropdownMenu = document.querySelector('nav .absolute');
+
+    profileButton.addEventListener('click', () => {
+        dropdownMenu.classList.toggle('hidden');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (event) => {
+        if (!profileButton.contains(event.target)) {
+            dropdownMenu.classList.add('hidden');
+        }
+    });
+</script>
